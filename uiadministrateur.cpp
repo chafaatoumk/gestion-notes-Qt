@@ -26,8 +26,8 @@ UIAdministrateur::~UIAdministrateur()
 bool UIAdministrateur::getInputs(int* identifiant, QString &login, QString &password, QString &type, bool* operation)
 {
     if (ui->lineEditId->text().compare("") != 0)
-    {
-        *identifiant = ui->lineEditId->text().toInt();
+    //{
+       *identifiant = ui->lineEditId->text().toInt();
 
         login = ui->lineEditUsername->text();
         password = ui->lineEditPassword->text();
@@ -35,9 +35,11 @@ bool UIAdministrateur::getInputs(int* identifiant, QString &login, QString &pass
         *operation = ui->radioButtonCreer->isChecked(); // true si creation ...
 
         return true;
-    }
+    //}
+    /*
     else
     {
         return false;
     }
+    */
 }

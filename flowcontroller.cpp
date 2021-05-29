@@ -2,7 +2,8 @@
 #include <QDebug>
 #include <QMessageBox>
 
-FlowController::FlowController() : uiAuthentification(nullptr), uiAdministrateur (nullptr)
+FlowController::FlowController() : uiAuthentification(nullptr), uiAdministrateur (nullptr), uiResponsable(nullptr),
+        uiModule(nullptr), uiGestionFormateur(nullptr)
 {
      service = Service::getInstance();
 }
@@ -51,8 +52,9 @@ void FlowController::onUIAuthentificationLoginClicked()
                     this->uiAuthentification->notificationInformation("UIEtudiant :: Working on it !");
                     break;
                 case RESPONSABLE:
-                    // On affiche la fenêtre de l'étudiant ...
-                    this->uiAuthentification->notificationInformation("UIResponsable :: Working on it !");
+                    // On affiche la fenêtre du reponsable ...
+                    uiResponsable = new Responsable(this);
+                    uiResponsable->show();
                     break;
 
                 default:;
@@ -131,6 +133,97 @@ void FlowController::onUIAdministrateurRechercherClicked()
 }
 
 void FlowController::onUIAdministrateurProfilClicked()
+{
+
+}
+
+
+/*
+    les fonctions à executer suite au click des boutons respectifs
+    de la page du responsable
+*/
+
+void FlowController::onUIResponsableModulesClicked()
+{
+    uiModule = new UIModule(this);
+    uiModule->show();
+}
+
+void FlowController::onUIResponsableEtudiantsClicked()
+{
+
+}
+
+void FlowController::onUIResponsableFormateursClicked()
+{
+    uiGestionFormateur = new GestionFormateur(this);
+    uiGestionFormateur->show();
+}
+
+void FlowController::onUIResponsableClassesClicked()
+{
+
+}
+
+/*
+    les fonctions à executer suite au click des boutons respectifs
+    de la page de gestion des modules(uimodule)
+*/
+void FlowController::onUIModuleCreerClicked()
+{
+
+}
+
+void FlowController::onUIModuleModifierClicked()
+{
+
+}
+
+void FlowController::onUIModuleSupprimerClicked()
+{
+
+}
+
+void FlowController::onUIModuleListerClicked()
+{
+
+}
+
+void FlowController::onUIModuleValiderClicked()
+{
+
+}
+
+/*
+    les fonctions à executer suite au click des boutons respectifs
+    de la page de gestion des formateurs(GestionFormateur)
+*/
+void FlowController::onUIGestionFormateurCreerClicked()
+{
+
+}
+
+void FlowController::onUIGestionFormateurModifierClicked()
+{
+
+}
+
+void FlowController::onUIGestionFormateurSupprimerClicked()
+{
+
+}
+
+void FlowController::onUIGestionFormateurListerClicked()
+{
+
+}
+
+void FlowController::onUIGestionFormateurRechercherClicked()
+{
+
+}
+
+void FlowController::onUIGestionFormateurValiderClicked()
 {
 
 }

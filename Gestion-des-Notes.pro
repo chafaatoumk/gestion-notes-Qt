@@ -9,9 +9,13 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    gestionetudiant.cpp \
+    gestionformateur.cpp \
     main.cpp \
+    responsable.cpp \
     uiadministrateur.cpp \
     uiauthentication.cpp \
+    uimodule.cpp \
     user.cpp \
     service.cpp \
     flowcontroller.cpp \
@@ -20,8 +24,12 @@ SOURCES += \
 
 
 HEADERS += \
+    gestionetudiant.h \
+    gestionformateur.h \
+    responsable.h \
     uiadministrateur.h \
     uiauthentication.h \
+    uimodule.h \
     user.h \
     service.h \
     flowcontroller.h \
@@ -29,8 +37,12 @@ HEADERS += \
     usermodel.h
 
 FORMS += \
+    gestionetudiant.ui \
+    gestionformateur.ui \
+    responsable.ui \
     uiadministrateur.ui \
-    uiauthentication.ui
+    uiauthentication.ui \
+    uimodule.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
