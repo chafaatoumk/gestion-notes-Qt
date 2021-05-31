@@ -43,3 +43,12 @@ bool UIAdministrateur::getInputs(int* identifiant, QString &login, QString &pass
     }
     */
 }
+
+void UIAdministrateur::initializeInputs()
+{
+    ui->lineEditId->setText("");
+
+    ui->lineEditUsername->setText("");
+    ui->lineEditPassword->setText("");
+    ui->lineEditConfirmPassword->setText("");
+}

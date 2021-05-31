@@ -17,6 +17,7 @@ public:
     ~UIAdministrateur();
 
     bool getInputs(int* identifiant, QString &login, QString &password, QString &type, bool* operation);
+    void initializeInputs();
 
 private:
     Ui::UIAdministrateur *ui;

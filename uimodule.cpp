@@ -21,14 +21,14 @@ UIModule::UIModule(QObject *controller)
             controller, SLOT(onUIModuleListerClicked()));
 }
 
-bool UIModule::getInputs(int* identifiant, QString &nom, QString &volumeHoraire, bool* operation)
+bool UIModule::getInputs(int* identifiant, QString &nom, uint &volumeHoraire, bool* operation)
 {
     if (ui->lineEditID->text().compare("") != 0)
     //{
        *identifiant = ui->lineEditID->text().toInt();
 
         nom = ui->lineEditNom->text();
-        //volumeHoraire = ui->lineEditVolume->text();
+        volumeHoraire = ui->spinBoxVolumeHoraire->value();
         *operation = ui->radioButtonCreer->isChecked(); // true si creation ...
 
         return true;
@@ -39,6 +39,13 @@ bool UIModule::getInputs(int* identifiant, QString &nom, QString &volumeHoraire,
         return false;
     }
     */
+}
+
+void UIModule::initializeInputs()
+{
+    ui->lineEditID->setText("");
+    ui->lineEditNom->setText("");
+    ui->spinBoxVolumeHoraire->cleanText();
 }
 
 UIModule::~UIModule()

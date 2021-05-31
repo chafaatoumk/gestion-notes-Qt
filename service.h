@@ -2,7 +2,9 @@
 #define SERVICE_H
 
 #include "user.h"
+#include "module.h"
 #include "usermodel.h"
+#include "modulemodel.h"
 #include <QDebug>
 #include <QMessageBox>
 
@@ -24,6 +26,9 @@ public:
 
     bool authentifier(QString login, QString password, User* user);
     void createUser(User user);
+    void readAllUsers();
+
+    void createModule(Module module);
 };
 
 #endif // SERVICE_H

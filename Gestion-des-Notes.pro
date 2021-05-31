@@ -12,6 +12,8 @@ SOURCES += \
     gestionetudiant.cpp \
     gestionformateur.cpp \
     main.cpp \
+    module.cpp \
+    modulemodel.cpp \
     responsable.cpp \
     uiadministrateur.cpp \
     uiauthentication.cpp \
@@ -26,6 +28,8 @@ SOURCES += \
 HEADERS += \
     gestionetudiant.h \
     gestionformateur.h \
+    module.h \
+    modulemodel.h \
     responsable.h \
     uiadministrateur.h \
     uiauthentication.h \

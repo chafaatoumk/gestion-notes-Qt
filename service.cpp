@@ -50,3 +50,15 @@ void Service::createUser(User user)
     UserModel userModel(DBAccess::getInstance());
     userModel.create(user);
 }
+
+void Service::readAllUsers()
+{
+    UserModel userModel(DBAccess::getInstance());
+    userModel.readAll();
+}
+
+void Service::createModule(Module module)
+{
+    ModuleModel moduleModel(DBAccess::getInstance());
+    moduleModel.create(module);
+}

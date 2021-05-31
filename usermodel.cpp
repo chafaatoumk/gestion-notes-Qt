@@ -35,7 +35,7 @@ void UserModel::readAll()
     dbAccess->open();
 
     QSqlDatabase database = dbAccess->database();
-    this->setQuery("SELECT identifiant, nom, prenom, login, type FROM t_users", database);
+    this->setQuery("SELECT * FROM t_users", database);
 
     this->setHeaderData(0, Qt::Horizontal, tr("Identifiant"));
     this->setHeaderData(1, Qt::Horizontal, tr("Nom"));

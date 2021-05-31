@@ -99,6 +99,7 @@ void FlowController::onUIAdministrateurValiderClicked()
             user.setType(type);
 
             service->createUser(user);
+            uiAdministrateur->initializeInputs();
         }
         else
         {
@@ -109,7 +110,7 @@ void FlowController::onUIAdministrateurValiderClicked()
 
 void FlowController::onUIAdministrateurListerClicked()
 {
-
+    service->readAllUsers();
 }
 
 void FlowController::onUIAdministrateurEffacerClicked()
@@ -191,7 +192,27 @@ void FlowController::onUIModuleListerClicked()
 
 void FlowController::onUIModuleValiderClicked()
 {
+    int identifiant = -1;
+    QString nom;
+    uint volume_horaire;
+    bool operation;
 
+    bool statut = this->uiModule->getInputs(&identifiant, nom, volume_horaire, &operation);
+    if (statut == true)
+    {
+        if (operation == true)
+        {
+            // Creation
+            Module module (nom, volume_horaire);
+
+            service->createModule(module);
+            uiModule->initializeInputs();
+        }
+        else
+        {
+            // Mise à jour ...
+        }
+    }
 }
 
 /*
@@ -244,6 +265,21 @@ FlowController::~FlowController()
     if (uiAdministrateur != nullptr)
     {
         delete uiAdministrateur;
+    }
+
+    if (uiResponsable != nullptr)
+    {
+        delete uiResponsable;
+    }
+
+    if (uiGestionFormateur != nullptr)
+    {
+        delete uiGestionFormateur;
+    }
+
+    if (uiModule != nullptr)
+    {
+        delete uiModule;
     }
 
     if (service != nullptr)

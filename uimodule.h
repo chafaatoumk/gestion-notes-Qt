@@ -16,7 +16,8 @@ public:
     UIModule(QObject* controller = nullptr);
     ~UIModule();
 
-    bool getInputs(int* identifiant, QString &nom, QString &volumeHoraire, bool* operation);
+    bool getInputs(int* identifiant, QString &nom, uint &volumeHoraire, bool* operation);
+    void initializeInputs();
 
 private:
     Ui::UIModule *ui;
