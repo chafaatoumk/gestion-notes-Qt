@@ -1,4 +1,4 @@
-#include "usermodel.h"
+ #include "usermodel.h"
 #include <QDebug>
 #include <QSqlQuery>
 #include <QSqlRecord>
@@ -7,7 +7,7 @@
 UserModel::UserModel(DBAccess *dbAccess)
 {
     this->dbAccess = dbAccess;
-    clear();
+    this->clear();
 }
 
 void UserModel::create(User user)
@@ -37,11 +37,12 @@ void UserModel::readAll()
     QSqlDatabase database = dbAccess->database();
     this->setQuery("SELECT * FROM t_users", database);
 
-    this->setHeaderData(0, Qt::Horizontal, tr("Identifiant"));
-    this->setHeaderData(1, Qt::Horizontal, tr("Nom"));
-    this->setHeaderData(2, Qt::Horizontal, tr("Prénom"));
-    this->setHeaderData(3, Qt::Horizontal, tr("Login"));
-    this->setHeaderData(4, Qt::Horizontal, tr("Type"));
+    this->setHeaderData(0, Qt::Horizontal, tr("IDENTIFIANT"));
+    this->setHeaderData(1, Qt::Horizontal, tr("NOM"));
+    this->setHeaderData(2, Qt::Horizontal, tr("PRENOM"));
+    this->setHeaderData(3, Qt::Horizontal, tr("LOGIN"));
+    this->setHeaderData(4, Qt::Horizontal, tr("MOT DE PASSE"));
+    this->setHeaderData(5, Qt::Horizontal, tr("TYPE"));
 
     qDebug () << "Users displayed successfully!";
     dbAccess->close();
@@ -52,7 +53,7 @@ void UserModel::update(User user)
     dbAccess->open();
 
     QSqlQuery query(dbAccess->database());
-    query.prepare("UPDATE t_users SET nom=:nom, prenom=:prenom, login=:login, password=:password, type=:type "
+    query.prepare("UPDATE t_users SET identifiant=:identifiant, nom=:nom, prenom=:prenom, login=:login, password=:password, type=:type "
                     "WHERE identifiant=:identifiant");
     query.bindValue(":nom", user.getNom());
     query.bindValue(":prenom", user.getPrenom());
@@ -90,6 +91,7 @@ bool UserModel::readBy(QString login)
     QSqlQuery query(dbAccess->database());
     query.prepare("SELECT identifiant AS Identifiant, nom AS Nom, prenom AS Prénom, login AS Login, type AS Type FROM t_users WHERE login=:login");
     query.bindValue(":login", login);
+
     query.exec();
 
     if (false == query.next()) // Aucun enregistrement trouvé
@@ -139,11 +141,12 @@ void UserModel::clear()
     QSqlDatabase database = dbAccess->database();
     this->setQuery("SELECT identifiant, nom, prenom, login, type FROM t_users WHERE identifiant=-1", database);
 
-    this->setHeaderData(0, Qt::Horizontal, tr("Identifiant"));
-    this->setHeaderData(1, Qt::Horizontal, tr("Nom"));
-    this->setHeaderData(2, Qt::Horizontal, tr("Prénom"));
-    this->setHeaderData(3, Qt::Horizontal, tr("Login"));
-    this->setHeaderData(4, Qt::Horizontal, tr("Type"));
+    this->setHeaderData(0, Qt::Horizontal, tr("IDENTIFIANT"));
+    this->setHeaderData(1, Qt::Horizontal, tr("NOM"));
+    this->setHeaderData(2, Qt::Horizontal, tr("PRENOM"));
+    this->setHeaderData(3, Qt::Horizontal, tr("LOGIN"));
+    this->setHeaderData(4, Qt::Horizontal, tr("MOT DE PASSE"));
+    this->setHeaderData(4, Qt::Horizontal, tr("TYPE"));
 
     dbAccess->close();
 }

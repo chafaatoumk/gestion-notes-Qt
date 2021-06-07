@@ -67,16 +67,6 @@ void FlowController::onUIAuthentificationLoginClicked()
     }
 }
 
-void FlowController::onUIAuthentificationSignUpClicked()
-{
-
-}
-
-void FlowController::onUIAuthentificationExitClicked()
-{
-
-}
-
 /*
     les fonctions à executer suite au click des boutons respectifs
     de la page de l'administrateur
@@ -86,51 +76,85 @@ void FlowController::onUIAdministrateurValiderClicked()
     int identifiant = -1;
     QString login;
     QString password;
+    QString nom;
+    QString prenom;
     QString type;
     bool operation;
 
-    bool statut = this->uiAdministrateur->getInputs(&identifiant, login, password, type, &operation);
+    bool statut = this->uiAdministrateur->getInputs(&identifiant, nom, prenom, login, password, type, &operation);
     if (statut == true)
     {
+        // Creation d'un objet User
+        User user (identifiant, nom, prenom, login, password);
+        user.setType(type);
+
         if (operation == true)
         {
-            // Creation
-            User user ("", "", login, password);
-            user.setType(type);
-
             service->createUser(user);
             uiAdministrateur->initializeInputs();
+            QString message = "Utilisateur "+user.getNom()+" créé avec succès !";
+            this->uiAdministrateur->notificationInformation(message);
         }
         else
         {
-            // Mise à jour ...
+            service->updateUser(user, uiAdministrateur->getUserModel());
+            uiAdministrateur->initializeInputs();
+            QString message = "Utilisateur "+user.getNom()+" mis à jour avec succès !";
+            this->uiAdministrateur->notificationInformation(message);
         }
     }
+    service->readAllUsers(uiAdministrateur->getUserModel());
 }
 
 void FlowController::onUIAdministrateurListerClicked()
 {
-    service->readAllUsers();
+    service->readAllUsers(uiAdministrateur->getUserModel());
 }
 
 void FlowController::onUIAdministrateurEffacerClicked()
 {
-
+    service->cleanTable(uiAdministrateur->getUserModel());
 }
 
 void FlowController::onUIAdministrateurSupprimerClicked()
 {
+    int identifiant = -1;
+    QString login;
+    QString password;
+    QString nom;
+    QString prenom;
+    QString type;
+    bool operation;
 
+    bool statut = this->uiAdministrateur->getInputs(&identifiant, nom, prenom, login, password, type, &operation);
+    if (statut == true)
+    {
+        // Creation d'un objet User
+        User user (identifiant, nom, prenom, login, password);
+        user.setType(type);
+        UserModel *userModel = uiAdministrateur->getUserModel();
+        QString message = "Utilisateur "+user.getNom()+" suprimé avec succès !";
+
+        service->deleteUser(user.getIdentifiant(), userModel);
+        uiAdministrateur->initializeInputs();
+
+        this->uiAdministrateur->notificationInformation(message);
+        service->readAllUsers(uiAdministrateur->getUserModel());
+    }
 }
 
 void FlowController::onUIAdministrateurExitClicked()
 {
-
+    uiAdministrateur->close();
 }
 
 void FlowController::onUIAdministrateurRechercherClicked()
 {
+    QString input = uiAdministrateur->getRechercherInput();
+    QString critere = uiAdministrateur->getCritere();
 
+    if(critere.compare("Username") == 0)
+        service->readUserBy(input, uiAdministrateur->getUserModel());
 }
 
 void FlowController::onUIAdministrateurProfilClicked()
@@ -146,6 +170,7 @@ void FlowController::onUIAdministrateurProfilClicked()
 
 void FlowController::onUIResponsableModulesClicked()
 {
+    uiResponsable->close();
     uiModule = new UIModule(this);
     uiModule->show();
 }
@@ -157,13 +182,14 @@ void FlowController::onUIResponsableEtudiantsClicked()
 
 void FlowController::onUIResponsableFormateursClicked()
 {
+    uiResponsable->close();
     uiGestionFormateur = new GestionFormateur(this);
     uiGestionFormateur->show();
 }
 
 void FlowController::onUIResponsableClassesClicked()
 {
-
+    uiResponsable->close();
 }
 
 /*
@@ -172,7 +198,27 @@ void FlowController::onUIResponsableClassesClicked()
 */
 void FlowController::onUIModuleCreerClicked()
 {
+    /*uint identifiant = -1;
+    QString nom;
+    uint volumeHoraire;
+    bool operation;
 
+    bool statut = this->uiModule->getInputs(&identifiant, &nom, &volumeHoraire, &operation);
+    if (statut == true)
+    {
+        if (operation == true)
+        {
+            // Creation
+            Module module (nom, volumeHoraire);
+
+            service->createModule(module);
+            uiModule->initializeInputs();
+        }
+        else
+        {
+            // Mise à jour ...
+        }
+    } */
 }
 
 void FlowController::onUIModuleModifierClicked()

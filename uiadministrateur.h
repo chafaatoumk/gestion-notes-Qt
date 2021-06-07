@@ -2,6 +2,12 @@
 #define UIADMINISTRATEUR_H
 
 #include <QMainWindow>
+#include "usermodel.h"
+#include "dbaccess.h"
+#include <QTableView>
+#include <QSqlRecord>
+#include <QModelIndex>
+#include <QMessageBox>
 
 namespace Ui {
 class UIAdministrateur;
@@ -16,11 +22,23 @@ public:
     UIAdministrateur(QObject* controller = nullptr);
     ~UIAdministrateur();
 
-    bool getInputs(int* identifiant, QString &login, QString &password, QString &type, bool* operation);
+    bool getInputs(int* identifiant, QString &nom, QString &prenom, QString &login, QString &password, QString &type, bool* operation);
+    UserModel* getUserModel();
+    QTableView* getTableView();
+    void setUpTableView();
+    QString getCritere();
+    QString getRechercherInput();
+    void notificationError(QString message);
+    void notificationInformation(QString message);
     void initializeInputs();
+
+private slots:
+
+    void on_tableView_clicked(const QModelIndex &index);
 
 private:
     Ui::UIAdministrateur *ui;
+    UserModel* userModel;
 };
 
 #endif // UIADMINISTRATEUR_H

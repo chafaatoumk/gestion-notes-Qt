@@ -44,21 +44,48 @@ Service::~Service()
     qDebug() << "Service Object has been deleted!";
 }
 
-
+//Users
 void Service::createUser(User user)
 {
     UserModel userModel(DBAccess::getInstance());
     userModel.create(user);
 }
 
-void Service::readAllUsers()
+void Service::updateUser(User user, UserModel* userModel)
 {
-    UserModel userModel(DBAccess::getInstance());
-    userModel.readAll();
+    userModel->update(user);
 }
 
+void Service::readAllUsers(UserModel* userModel)
+{
+    userModel->readAll();
+}
+
+void Service::deleteUser(uint identifiant, UserModel* userModel)
+{
+    userModel->remove(identifiant);
+}
+
+void Service::readUserBy(QString login, UserModel* userModel)
+{
+    userModel->readBy(login);
+}
+
+void Service::cleanTable(UserModel *userModel)
+{
+    userModel->clear();
+}
+
+// Modules
 void Service::createModule(Module module)
 {
     ModuleModel moduleModel(DBAccess::getInstance());
     moduleModel.create(module);
+}
+
+// Formateurs
+void Service::createFormateur(Formateur formateur)
+{
+    //FormateurModel formateurModel(DBAccess::getInstance());
+    //formateurModel.create(formateur);
 }

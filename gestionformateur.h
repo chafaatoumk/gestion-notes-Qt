@@ -16,6 +16,9 @@ public:
     GestionFormateur(QObject* controller = nullptr);
     ~GestionFormateur();
 
+    bool getInputs(int* identifiant, QString &nom, QString &email, QString &module, QString &classe, bool* operation);
+    void initializeInputs();
+
 private:
     Ui::GestionFormateur *ui;
 };

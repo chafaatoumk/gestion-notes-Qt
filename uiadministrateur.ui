@@ -9,318 +9,419 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1107</width>
-    <height>659</height>
+    <width>1076</width>
+    <height>696</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Interface Administrateur</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Ressources.qrc">
+    <normaloff>:/images/images/bg.jpg</normaloff>:/images/images/bg.jpg</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="formLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>120</y>
-      <width>241</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <layout class="QFormLayout" name="formLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="labelId">
-       <property name="text">
-        <string>Id :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEditId">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="labelUsername">
-       <property name="text">
-        <string>Username :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEditUsername"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="labelPassword">
-       <property name="text">
-        <string>Password :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEditPassword">
-       <property name="echoMode">
-        <enum>QLineEdit::Password</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="labelConfirmPassword">
-       <property name="text">
-        <string>Confirm password :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLineEdit" name="lineEditConfirmPassword">
-       <property name="echoMode">
-        <enum>QLineEdit::Password</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="labelRole">
-       <property name="text">
-        <string>Rôle :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QComboBox" name="comboBoxRole">
-       <property name="currentIndex">
-        <number>0</number>
-       </property>
-       <item>
-        <property name="text">
-         <string>Administrateur</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Responsable</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Formateur</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Etudiant</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>360</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QRadioButton" name="radioButtonCreer">
-       <property name="text">
-        <string>Creer</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButtonModifier">
-       <property name="text">
-        <string>Modifier</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="Line" name="line">
+   <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>540</y>
-      <width>1081</width>
-      <height>16</height>
+      <y>0</y>
+      <width>1061</width>
+      <height>641</height>
      </rect>
     </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/images/images/bg.jpg);</string>
     </property>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>550</y>
-      <width>791</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButtonValider">
-       <property name="text">
-        <string>Valider</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButtonLister">
-       <property name="text">
-        <string>Lister</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButtonSupprimer">
-       <property name="text">
-        <string>Supprimer</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButtonEffacer">
-       <property name="text">
-        <string>Effacer</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButtonExit">
-       <property name="text">
-        <string>Exit</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QTableView" name="tableView">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>60</y>
-      <width>791</width>
-      <height>471</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_3">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>10</y>
-      <width>609</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QPushButton" name="pushButtonProfil">
-       <property name="toolTip">
-        <string>Consulter mon profil ...</string>
-       </property>
-       <property name="text">
-        <string>Profil</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelRechercher">
-       <property name="text">
-        <string>Rechercher un utilisateur à partir de son</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QComboBox" name="comboBoxRechercherPar">
-       <property name="currentIndex">
-        <number>0</number>
-       </property>
-       <item>
+    <widget class="QTableView" name="tableView">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>70</y>
+       <width>731</width>
+       <height>461</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid;
+border-color: rgb(112, 132, 162);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>830</x>
+       <y>10</y>
+       <width>221</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QLabel" name="labelUtilisateurConnecteTitre">
         <property name="text">
-         <string>Id</string>
+         <string>Utilisateur Connecté :</string>
         </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelUtilisateurConnecte">
+        <property name="text">
+         <string>&lt;dynamic&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>10</y>
+       <width>531</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditRechercher"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBoxRechercherPar">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>Id</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Username</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonRechercher">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(103, 117, 141);</string>
+        </property>
+        <property name="text">
+         <string>Rechercher</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>570</y>
+       <width>791</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonLister">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(103, 117, 141);</string>
+        </property>
+        <property name="text">
+         <string>Lister</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonSupprimer">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(103, 117, 141);</string>
+        </property>
+        <property name="text">
+         <string>Supprimer</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonEffacer">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(103, 117, 141);</string>
+        </property>
+        <property name="text">
+         <string>Effacer</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonExit">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(103, 117, 141);</string>
+        </property>
+        <property name="text">
+         <string>Exit</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="Line" name="line">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>550</y>
+       <width>1041</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 127);</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButtonProfil">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Consulter mon profil ...</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(103, 117, 141);</string>
+     </property>
+     <property name="text">
+      <string>Profil</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>291</width>
+       <height>471</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <italic>true</italic>
+       <underline>true</underline>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-color: rgb(0, 0, 127);</string>
+     </property>
+     <property name="title">
+      <string>Compte Utilisateur</string>
+     </property>
+     <widget class="QLineEdit" name="lineEditId">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>80</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="placeholderText">
+       <string>Identifiant</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEditUsername">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>200</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Nom d'utilisateur</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEditPassword">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>240</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+      <property name="placeholderText">
+       <string>Mot de passe</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEditConfirmPassword">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>280</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+      <property name="placeholderText">
+       <string>Confirmer le mot de passe</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBoxRole">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>320</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>Rôle</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Etudiant</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Formateur</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Responsable</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Administrateur</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>370</y>
+        <width>231</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QRadioButton" name="radioButtonCreer">
+           <property name="text">
+            <string>Creer</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButtonModifier">
+           <property name="text">
+            <string>Modifier</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
-        <property name="text">
-         <string>Username</string>
-        </property>
+        <widget class="QPushButton" name="pushButtonValider">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(103, 117, 141);</string>
+         </property>
+         <property name="text">
+          <string>Valider</string>
+         </property>
+        </widget>
        </item>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEditRechercher"/>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButtonRechercher">
-       <property name="text">
-        <string>Rechercher</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_4">
-    <property name="geometry">
-     <rect>
-      <x>870</x>
-      <y>10</y>
-      <width>221</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
-     <item>
-      <widget class="QLabel" name="labelUtilisateurConnecteTitre">
-       <property name="text">
-        <string>Utilisateur Connecté :</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelUtilisateurConnecte">
-       <property name="text">
-        <string>&lt;dynamic&gt;</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+      </layout>
+     </widget>
+     <widget class="QLineEdit" name="lineEditPrenom">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>160</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Prenom</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEditNom">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>120</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Nom</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -328,13 +429,15 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1107</width>
+     <width>1076</width>
      <height>26</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="Ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>

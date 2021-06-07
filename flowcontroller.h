@@ -30,8 +30,6 @@ private slots:
         de la fenetre d'authentification
     */
     void onUIAuthentificationLoginClicked();
-    void onUIAuthentificationSignUpClicked();
-    void onUIAuthentificationExitClicked();
 
     /*
         les fonctions à executer suite au click des boutons respectifs
@@ -44,6 +42,7 @@ private slots:
     void onUIAdministrateurExitClicked();
     void onUIAdministrateurRechercherClicked();
     void onUIAdministrateurProfilClicked();
+
 
     /*
         les fonctions à executer suite au click des boutons respectifs

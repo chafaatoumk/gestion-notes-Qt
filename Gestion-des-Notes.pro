@@ -9,6 +9,10 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    classe.cpp \
+    classmodel.cpp \
+    formateur.cpp \
+    formateurmodel.cpp \
     gestionetudiant.cpp \
     gestionformateur.cpp \
     main.cpp \
@@ -17,6 +21,7 @@ SOURCES += \
     responsable.cpp \
     uiadministrateur.cpp \
     uiauthentication.cpp \
+    uiclasse.cpp \
     uimodule.cpp \
     user.cpp \
     service.cpp \
@@ -26,6 +31,10 @@ SOURCES += \
 
 
 HEADERS += \
+    classe.h \
+    classmodel.h \
+    formateur.h \
+    formateurmodel.h \
     gestionetudiant.h \
     gestionformateur.h \
     module.h \
@@ -33,6 +42,7 @@ HEADERS += \
     responsable.h \
     uiadministrateur.h \
     uiauthentication.h \
+    uiclasse.h \
     uimodule.h \
     user.h \
     service.h \
@@ -46,9 +56,13 @@ FORMS += \
     responsable.ui \
     uiadministrateur.ui \
     uiauthentication.ui \
+    uiclasse.ui \
     uimodule.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Ressources.qrc
