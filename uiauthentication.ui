@@ -147,7 +147,8 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-image: url(:/images/images/logo.png);</string>
+      <string notr="true">background-image: url(:/images/images/logo.png);
+border-radius: 80%;</string>
      </property>
      <property name="text">
       <string/>
