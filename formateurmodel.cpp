@@ -16,8 +16,8 @@ void FormateurModel::create(Formateur formateur)
    dbAccess->open();
 
    QSqlQuery query(dbAccess->database());
-   query.prepare("INSERT INTO t_formateurs (nom, prenom, email, telephone, module, classe) "
-                   "VALUES (:nom, :prenom, :email, :telephone, :module, :classe)");
+   query.prepare("INSERT INTO t_formateurs (nom, prenom, email, telephone, module, classe, created_at) "
+                   "VALUES (:nom, :prenom, :email, :telephone, :module, :classe, datetime('now'))");
    query.bindValue(":nom", formateur.getNom());
    query.bindValue(":prenom", formateur.getPrenom());
    query.bindValue(":email", formateur.getEmail());

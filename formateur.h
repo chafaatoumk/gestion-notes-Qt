@@ -15,13 +15,12 @@ private:
     QString prenom;
     QString email;
     QString telephone;
-    QString created_at;
     Module module;
     Classe classe;
 
 public:
     Formateur();
-    Formateur(uint, QString, QString, QString,  QString, QString);
+    Formateur(uint, QString, QString, QString,  QString);
     Formateur(QString, QString, QString,  QString);
 
     uint getIdentifiant() { return identifiant; }
@@ -29,7 +28,6 @@ public:
     QString getPrenom() { return prenom; }
     QString getEmail() { return email; }
     QString getTelephone() { return telephone; }
-    QString getCreated_at() { return created_at; }
     Module getModule() { return module; }
     Classe getClasse() { return classe; }
 
