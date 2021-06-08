@@ -19,6 +19,7 @@ private:
     QString login;
     QString password;
     QString type;
+    QString created_at;
 
 public:
     User();

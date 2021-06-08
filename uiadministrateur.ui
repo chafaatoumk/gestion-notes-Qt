@@ -39,9 +39,9 @@
     <widget class="QTableView" name="tableView">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>310</x>
        <y>70</y>
-       <width>731</width>
+       <width>741</width>
        <height>461</height>
       </rect>
      </property>
@@ -137,9 +137,9 @@ border-color: rgb(112, 132, 162);</string>
     <widget class="Line" name="line">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>310</x>
        <y>550</y>
-       <width>731</width>
+       <width>741</width>
        <height>20</height>
       </rect>
      </property>
@@ -172,9 +172,9 @@ border-color: rgb(112, 132, 162);</string>
     <widget class="QGroupBox" name="groupBox">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>70</y>
-       <width>291</width>
+       <width>271</width>
        <height>541</height>
       </rect>
      </property>
@@ -200,7 +200,7 @@ color: rgb(49, 49, 49);</string>
       </property>
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>80</y>
         <width>231</width>
         <height>31</height>
@@ -219,7 +219,7 @@ color: rgb(49, 49, 49);</string>
      <widget class="QLineEdit" name="lineEditUsername">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>200</y>
         <width>231</width>
         <height>31</height>
@@ -232,7 +232,7 @@ color: rgb(49, 49, 49);</string>
      <widget class="QLineEdit" name="lineEditPassword">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>240</y>
         <width>231</width>
         <height>31</height>
@@ -254,7 +254,7 @@ color: rgb(49, 49, 49);</string>
      <widget class="QLineEdit" name="lineEditConfirmPassword">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>280</y>
         <width>231</width>
         <height>31</height>
@@ -276,7 +276,7 @@ color: rgb(49, 49, 49);</string>
      <widget class="QComboBox" name="comboBoxRole">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>320</y>
         <width>231</width>
         <height>31</height>
@@ -314,7 +314,7 @@ color: rgb(49, 49, 49);</string>
      <widget class="QLineEdit" name="lineEditPrenom">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>160</y>
         <width>231</width>
         <height>31</height>
@@ -327,7 +327,7 @@ color: rgb(49, 49, 49);</string>
      <widget class="QLineEdit" name="lineEditNom">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>120</y>
         <width>231</width>
         <height>31</height>
@@ -340,7 +340,7 @@ color: rgb(49, 49, 49);</string>
      <widget class="QRadioButton" name="radioButtonModifier">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>150</x>
         <y>450</y>
         <width>101</width>
         <height>20</height>
@@ -353,7 +353,7 @@ color: rgb(49, 49, 49);</string>
      <widget class="QRadioButton" name="radioButtonCreer">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>450</y>
         <width>110</width>
         <height>20</height>
@@ -369,7 +369,7 @@ color: rgb(49, 49, 49);</string>
      <widget class="QPushButton" name="pushButtonValider">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>490</y>
         <width>231</width>
         <height>31</height>

@@ -1,4 +1,4 @@
- #include "usermodel.h"
+#include "usermodel.h"
 #include <QDebug>
 #include <QSqlQuery>
 #include <QSqlRecord>
@@ -15,8 +15,8 @@ void UserModel::create(User user)
     dbAccess->open();
 
     QSqlQuery query(dbAccess->database());
-    query.prepare("INSERT INTO t_users (nom, prenom, login, password, type) "
-                    "VALUES (:nom, :prenom, :login, :password, :type)");
+    query.prepare("INSERT INTO t_users (nom, prenom, login, password, type, created_at) "
+                    "VALUES (:nom, :prenom, :login, :password, :type, datetime('now'))");
     query.bindValue(":nom", user.getNom());
     query.bindValue(":prenom", user.getPrenom());
     query.bindValue(":login", user.getLogin());
