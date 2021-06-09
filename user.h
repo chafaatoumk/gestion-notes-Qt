@@ -4,10 +4,10 @@
 #include <QString>
 
 enum TypeUser {
-    ADMINISTRATEUR,
-    FORMATEUR,
     ETUDIANT,
-    RESPONSABLE
+    FORMATEUR,
+    RESPONSABLE,
+    ADMINISTRATEUR
 };
 
 class User

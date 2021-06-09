@@ -17,7 +17,7 @@
    <string>Interface Administrateur</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="Ressources.qrc">
+   <iconset>
     <normaloff>:/images/images/bg.jpg</normaloff>:/images/images/bg.jpg</iconset>
   </property>
   <property name="styleSheet">
@@ -55,8 +55,8 @@ border-color: rgb(112, 132, 162);</string>
       <rect>
        <x>830</x>
        <y>10</y>
-       <width>221</width>
-       <height>31</height>
+       <width>960</width>
+       <height>32</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -287,27 +287,22 @@ color: rgb(49, 49, 49);</string>
       </property>
       <item>
        <property name="text">
-        <string>Rôle</string>
+        <string>ETUDIANT</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>Etudiant</string>
+        <string>FORMATEUR</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>Formateur</string>
+        <string>RESPONSABLE</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>Responsable</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Administrateur</string>
+        <string>ADMINISTRATEUR</string>
        </property>
       </item>
      </widget>
@@ -476,8 +471,6 @@ color: rgb(49, 49, 49);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="Ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
