@@ -51,7 +51,10 @@ void GestionFormateur::setUpComboBox()
     ui->comboBoxClasse->setModel(classeModel);
     ui->comboBoxModule->setModel(moduleModel);
 
-    formateurModel->readAll();
+    userModel->readAllFormateurs();
+    classeModel->readAllClasses();
+    moduleModel->readAllModules();
+    //formateurModel->readAll();
 }
 
 FormateurModel* GestionFormateur::getFormateurModel()
@@ -66,7 +69,7 @@ QTableView* GestionFormateur::getTableView()
 
 QString GestionFormateur::getCritere()
 {
-    return ui->comboBoxRechercherPar->itemText(0);
+    return ui->comboBoxRechercherPar->currentText();
 }
 
 QString GestionFormateur::getRechercherInput()
@@ -89,9 +92,9 @@ void GestionFormateur::on_tableView_clicked(const QModelIndex &index)
     record = formateurModel->record(i);
     // getting data from selected row of the tableView to inputs
     ui->lineEditId->setText(record.value(0).toString());
-
-    ui->comboBoxModule->setCurrentText(record.value(5).toString());
-    ui->comboBoxClasse->setCurrentText(record.value(6).toString());
+    ui->comboBoxFormateur->setCurrentText(record.value(1).toString());
+    ui->comboBoxModule->setCurrentText(record.value(2).toString());
+    ui->comboBoxClasse->setCurrentText(record.value(3).toString());
 }
 
 void GestionFormateur::notificationError(QString message)
@@ -107,4 +110,7 @@ void GestionFormateur::notificationInformation(QString message)
 GestionFormateur::~GestionFormateur()
 {
     delete ui;
+    delete userModel;
+    delete classeModel;
+    delete moduleModel;
 }

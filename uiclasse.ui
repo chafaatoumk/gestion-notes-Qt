@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1057</width>
-    <height>694</height>
+    <width>991</width>
+    <height>607</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1051</width>
-      <height>641</height>
+      <width>971</width>
+      <height>551</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -247,7 +247,7 @@ color: rgb(49, 49, 49);</string>
       <rect>
        <x>740</x>
        <y>10</y>
-       <width>231</width>
+       <width>221</width>
        <height>32</height>
       </rect>
      </property>
@@ -274,7 +274,7 @@ color: rgb(49, 49, 49);</string>
        <x>299</x>
        <y>480</y>
        <width>661</width>
-       <height>80</height>
+       <height>51</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
@@ -339,7 +339,7 @@ color: rgb(49, 49, 49);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1057</width>
+     <width>991</width>
      <height>26</height>
     </rect>
    </property>

@@ -52,6 +52,17 @@ void UserModel::readAll()
     dbAccess->close();
 }
 
+void UserModel::readAllFormateurs()
+{
+    dbAccess->open();
+
+    QSqlDatabase database = dbAccess->database();
+    this->setQuery("SELECT nom FROM t_users WHERE type=1", database);
+
+    qDebug () << "Formateurs displayed successfully!";
+    dbAccess->close();
+}
+
 void UserModel::update(User user)
 {
     dbAccess->open();

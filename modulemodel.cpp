@@ -43,6 +43,17 @@ void ModuleModel::readAll()
     dbAccess->close();
 }
 
+void ModuleModel::readAllModules()
+{
+    dbAccess->open();
+
+    QSqlDatabase database = dbAccess->database();
+    this->setQuery("SELECT nom FROM t_modules", database);
+
+    qDebug () << "Modules displayed successfully!";
+    dbAccess->close();
+}
+
 void ModuleModel::update(Module module)
 {
     dbAccess->open();

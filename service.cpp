@@ -136,3 +136,8 @@ void Service::createFormateur(Formateur formateur)
     //FormateurModel formateurModel(DBAccess::getInstance());
     //formateurModel.create(formateur);
 }
+
+void Service::readAllFormateurs(UserModel* userModel)
+{
+    userModel->readAllFormateurs();
+}

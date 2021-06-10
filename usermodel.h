@@ -24,6 +24,7 @@ public:
     bool readBy(QString login);
     bool readBy(QString login, QString password, User *user);
     void readAll();
+    void readAllFormateurs();
 
 };
 

@@ -124,6 +124,8 @@ void UIAdministrateur::on_tableView_clicked(const QModelIndex &index)
     ui->lineEditPassword->setText(record.value(6).toString());
     ui->lineEditConfirmPassword->setText(record.value(6).toString());
     ui->comboBoxRole->setCurrentText(record.value(7).toString());
+
+    ui->radioButtonModifier->isChecked();
 }
 
 void UIAdministrateur::notificationError(QString message)

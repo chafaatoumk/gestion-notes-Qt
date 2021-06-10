@@ -54,6 +54,7 @@ public:
 
     // Formateurs
     void createFormateur(Formateur formateur);
+    void readAllFormateurs(UserModel* userModel);
 
 };
 

@@ -163,9 +163,7 @@
      </property>
      <property name="styleSheet">
       <string notr="true">border-radius: 5px;
-background-color: rgba(255, 255, 255, .0);
-border: 2px solid rgb(49, 49, 49);
-color: rgb(49, 49, 49);</string>
+border: 2px solid rgb(49, 49, 49);</string>
      </property>
      <property name="title">
       <string>Formateur</string>
@@ -200,6 +198,9 @@ color: rgb(49, 49, 49);</string>
         <width>231</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="currentIndex">
        <number>0</number>
@@ -267,6 +268,9 @@ color: rgb(49, 49, 49);</string>
         <height>31</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -287,6 +291,9 @@ color: rgb(49, 49, 49);</string>
         <width>231</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="currentIndex">
        <number>0</number>

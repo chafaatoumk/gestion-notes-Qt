@@ -25,6 +25,7 @@ public:
     bool readBy(QString nom);
     bool readBy(QString nom, Module *module);
     void readAll();
+    void readAllModules();
 
 };
 

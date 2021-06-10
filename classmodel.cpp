@@ -40,6 +40,17 @@ void ClassModel::readAll()
     dbAccess->close();
 }
 
+void ClassModel::readAllClasses()
+{
+    dbAccess->open();
+
+    QSqlDatabase database = dbAccess->database();
+    this->setQuery("SELECT nom FROM t_classes", database);
+
+    qDebug () << "Classes displayed successfully!";
+    dbAccess->close();
+}
+
 void ClassModel::update(Classe classe)
 {
     dbAccess->open();

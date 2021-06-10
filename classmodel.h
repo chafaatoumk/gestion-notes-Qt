@@ -24,6 +24,7 @@ public:
     bool readBy(QString nom);
     bool readBy(QString nom, Classe *classe);
     void readAll();
+    void readAllClasses();
 };
 
 #endif // CLASSMODEL_H
