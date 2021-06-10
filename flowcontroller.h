@@ -4,6 +4,7 @@
 #include "uiauthentication.h"
 #include "uiadministrateur.h"
 #include "uimodule.h"
+#include "uiclasse.h"
 #include "responsable.h"
 #include "gestionformateur.h"
 #include "service.h"
@@ -18,6 +19,7 @@ private:
     UIAdministrateur* uiAdministrateur;
     Responsable* uiResponsable;
     UIModule* uiModule;
+    UIClasse* uiClasse;
     GestionFormateur* uiGestionFormateur;
 
 
@@ -57,19 +59,29 @@ private slots:
         les fonctions à executer suite au click des boutons respectifs
         de la page de gestion des modules(uimodule)
     */
-    void onUIModuleCreerClicked();
-    void onUIModuleModifierClicked();
     void onUIModuleSupprimerClicked();
     void onUIModuleListerClicked();
     void onUIModuleValiderClicked();
+    void onUIModuleEffacerClicked();
+    void onUIModuleRechercherClicked();
+    void onUIModuleExitClicked();
+
+    /*
+        les fonctions à executer suite au click des boutons respectifs
+        de la page de gestion des classes(uiclasse)
+    */
+    void onUIClasseSupprimerClicked();
+    void onUIClasseListerClicked();
+    void onUIClasseValiderClicked();
+    void onUIClasseEffacerClicked();
+    void onUIClasseRechercherClicked();
+    void onUIClasseExitClicked();
 
     /*
         les fonctions à executer suite au click des boutons respectifs
         de la page de gestion des formateurs(GestionFormateur)
     */
     void onUIGestionFormateurValiderClicked();
-    void onUIGestionFormateurCreerClicked();
-    void onUIGestionFormateurModifierClicked();
     void onUIGestionFormateurSupprimerClicked();
     void onUIGestionFormateurListerClicked();
     void onUIGestionFormateurRechercherClicked();

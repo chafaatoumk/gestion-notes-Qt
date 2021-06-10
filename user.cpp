@@ -3,12 +3,12 @@
 User::User()
 {}
 
-User::User(uint _identifiant, QString _nom, QString _prenom, QString _login, QString _password):
-    identifiant(_identifiant), nom(_nom), prenom(_prenom), login(_login), password(_password)
+User::User(uint _identifiant, QString _nom, QString _prenom, QString _email, QString _telephone, QString _login, QString _password):
+    identifiant(_identifiant), nom(_nom), prenom(_prenom), email(_email), telephone(_telephone), login(_login), password(_password)
 {}
 
-User::User(QString _nom, QString _prenom, QString _login, QString _password):
-    nom(_nom), prenom(_prenom), login(_login), password(_password)
+User::User(QString _nom, QString _prenom, QString _email, QString _telephone, QString _login, QString _password):
+    nom(_nom), prenom(_prenom), email(_email), telephone(_telephone), login(_login), password(_password)
 {}
 
 TypeUser User::getType()

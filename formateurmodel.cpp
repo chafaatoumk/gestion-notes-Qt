@@ -18,15 +18,16 @@ void FormateurModel::create(Formateur formateur)
    QSqlQuery query(dbAccess->database());
    query.prepare("INSERT INTO t_formateurs (nom, prenom, email, telephone, module, classe, created_at) "
                    "VALUES (:nom, :prenom, :email, :telephone, :module, :classe, datetime('now'))");
-   query.bindValue(":nom", formateur.getNom());
+/*   query.bindValue(":nom", formateur.getNom());
    query.bindValue(":prenom", formateur.getPrenom());
    query.bindValue(":email", formateur.getEmail());
    query.bindValue(":telephone", formateur.getTelephone());
+*/
    query.exec();
 
    readAll();
 
-   qDebug () << "Formateur" << formateur.getNom() << "created successfully!";
+   qDebug () << "Formateur" << formateur.getIdentifiant() << "created successfully!";
    dbAccess->close();
 }
 
@@ -57,15 +58,16 @@ void FormateurModel::update(Formateur formateur)
    QSqlQuery query(dbAccess->database());
    query.prepare("UPDATE t_formateurs SET identifiant=:identifiant, nom=:nom, prenom=:prenom, email=:email, telephone=:telephone "
                     "module=:module, classe=:classe WHERE identifiant=:identifiant");
-   query.bindValue(":nom", formateur.getNom());
+/*   query.bindValue(":nom", formateur.getNom());
    query.bindValue(":prenom", formateur.getPrenom());
    query.bindValue(":email", formateur.getEmail());
    query.bindValue(":telephone", formateur.getTelephone());
+*/
    query.exec();
 
    readAll();
 
-   qDebug () << "Formateur" << formateur.getNom() << " updated successfully!" ;
+   qDebug () << "Formateur" << formateur.getIdentifiant() << " updated successfully!" ;
    dbAccess->close();
 }
 
@@ -100,7 +102,7 @@ bool FormateurModel::readBy(QString nom)
        return false;
    }
 
-   qDebug() << "Formateur(s) with login" << nom << "found.";
+   qDebug() << "Formateur(s) with " << nom << "found.";
    dbAccess->close();
 
    return true;

@@ -12,7 +12,7 @@ GestionFormateur::GestionFormateur(QObject *controller)
     : ui(new Ui::GestionFormateur)
 {
     ui->setupUi(this);
-    this->setUpTableView();
+    this->setUpComboBox();
 
     connect(ui->pushButtonValider, SIGNAL(clicked()),
             controller, SLOT(onUIGestionFormateurValiderClicked()));
@@ -22,13 +22,11 @@ GestionFormateur::GestionFormateur(QObject *controller)
             controller, SLOT(onUIGestionFormateurListerClicked()));
 }
 
-bool GestionFormateur::getInputs(int* identifiant, QString &nom, QString &email, QString &module, QString &classe, bool* operation)
+bool GestionFormateur::getInputs(int* identifiant, QString &module, QString &classe, bool* operation)
 {
 
        *identifiant = ui->lineEditId->text().toInt();
 
-        nom = ui->lineEditNom->text();
-        email = ui->lineEditEmail->text();
         module = ui->comboBoxModule->currentText();
         classe = ui->comboBoxClasse->currentText();
         *operation = ui->radioButtonCreer->isChecked(); // true si creation ...
@@ -42,11 +40,17 @@ bool GestionFormateur::getInputs(int* identifiant, QString &nom, QString &email,
         }
 }
 
-void GestionFormateur::setUpTableView()
+void GestionFormateur::setUpComboBox()
 {
     //liaison entre le tableView et la BD
-    formateurModel = new FormateurModel(DBAccess::getInstance());
-    ui->tableView->setModel(formateurModel);
+    userModel = new UserModel(DBAccess::getInstance());
+    classeModel = new ClassModel(DBAccess::getInstance());
+    moduleModel = new ModuleModel(DBAccess::getInstance());
+
+    ui->comboBoxFormateur->setModel(userModel);
+    ui->comboBoxClasse->setModel(classeModel);
+    ui->comboBoxModule->setModel(moduleModel);
+
     formateurModel->readAll();
 }
 
@@ -73,9 +77,7 @@ QString GestionFormateur::getRechercherInput()
 void GestionFormateur::initializeInputs()
 {
     ui->lineEditId->setText("");
-
-    ui->lineEditNom->setText("");
-    ui->lineEditEmail->setText("");
+    ui->comboBoxFormateur->setCurrentText("");
     ui->comboBoxModule->setCurrentText("Module");
     ui->comboBoxClasse->setCurrentText("Classe");
 }
@@ -87,10 +89,7 @@ void GestionFormateur::on_tableView_clicked(const QModelIndex &index)
     record = formateurModel->record(i);
     // getting data from selected row of the tableView to inputs
     ui->lineEditId->setText(record.value(0).toString());
-    ui->lineEditNom->setText(record.value(1).toString());
-    ui->lineEditPrenom->setText(record.value(2).toString());
-    ui->lineEditEmail->setText(record.value(3).toString());
-    ui->lineEditTelephone->setText(record.value(4).toString());
+
     ui->comboBoxModule->setCurrentText(record.value(5).toString());
     ui->comboBoxClasse->setCurrentText(record.value(6).toString());
 }

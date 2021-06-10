@@ -15,8 +15,8 @@ void ModuleModel::create(Module module)
     dbAccess->open();
 
     QSqlQuery query(dbAccess->database());
-    query.prepare("INSERT INTO t_modules (nom, volume_horaire) "
-                    "VALUES (:nom, :volume_horaire)");
+    query.prepare("INSERT INTO t_modules (nom, volume_horaire, created_at) "
+                    "VALUES (:nom, :volume_horaire, datetime('now'))");
     query.bindValue(":nom", module.getNom());
     query.bindValue(":volume_horaire", module.getVolumeHoraire());
     query.exec();
@@ -34,9 +34,10 @@ void ModuleModel::readAll()
     QSqlDatabase database = dbAccess->database();
     this->setQuery("SELECT * FROM t_modules", database);
 
-    this->setHeaderData(0, Qt::Horizontal, tr("Identifiant"));
-    this->setHeaderData(1, Qt::Horizontal, tr("Nom"));
-    this->setHeaderData(2, Qt::Horizontal, tr("Volume Horaire"));
+    this->setHeaderData(0, Qt::Horizontal, tr("IDENTIFIANT"));
+    this->setHeaderData(1, Qt::Horizontal, tr("NOM"));
+    this->setHeaderData(2, Qt::Horizontal, tr("VOLUME HORAIRE"));
+    this->setHeaderData(3, Qt::Horizontal, tr("DATE DE CREATION"));
 
     qDebug () << "Modules displayed successfully!";
     dbAccess->close();
@@ -125,11 +126,12 @@ void ModuleModel::clear()
     dbAccess->open();
 
     QSqlDatabase database = dbAccess->database();
-    this->setQuery("SELECT identifiant, nom, volume_horaire FROM t_modules WHERE identifiant=-1", database);
+    this->setQuery("SELECT * FROM t_modules WHERE identifiant=-1", database);
 
-    this->setHeaderData(0, Qt::Horizontal, tr("Identifiant"));
-    this->setHeaderData(1, Qt::Horizontal, tr("Nom"));
-    this->setHeaderData(2, Qt::Horizontal, tr("Volume Horaire"));
+    this->setHeaderData(0, Qt::Horizontal, tr("IDENTIFIANT"));
+    this->setHeaderData(1, Qt::Horizontal, tr("NOM"));
+    this->setHeaderData(2, Qt::Horizontal, tr("VOLUME HORAIRE"));
+    this->setHeaderData(3, Qt::Horizontal, tr("DATE DE CREATION"));
 
     dbAccess->close();
 }

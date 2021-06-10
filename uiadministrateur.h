@@ -8,6 +8,7 @@
 #include <QSqlRecord>
 #include <QModelIndex>
 #include <QMessageBox>
+#include <QLineEdit>
 
 namespace Ui {
 class UIAdministrateur;
@@ -22,12 +23,14 @@ public:
     UIAdministrateur(QObject* controller = nullptr);
     ~UIAdministrateur();
 
-    bool getInputs(int* identifiant, QString &nom, QString &prenom, QString &login, QString &password, QString &type, bool* operation);
+    bool getInputs(int* identifiant, QString &nom, QString &prenom, QString &login, QString &email, QString &telephone,
+                   QString &password, QString &type, bool* operation);
     UserModel* getUserModel();
     QTableView* getTableView();
     void setUpTableView();
     QString getCritere();
     QString getRechercherInput();
+    QLineEdit* getLabelUtilisateurConnecte();
     void notificationError(QString message);
     void notificationInformation(QString message);
     void initializeInputs();

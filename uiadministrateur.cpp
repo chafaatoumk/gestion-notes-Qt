@@ -45,14 +45,17 @@ void UIAdministrateur::setUpTableView()
 UIAdministrateur::~UIAdministrateur()
 {
     delete ui;
+    delete userModel;
 }
 
-bool UIAdministrateur::getInputs(int* identifiant, QString &nom, QString &prenom, QString &login,
+bool UIAdministrateur::getInputs(int* identifiant, QString &nom, QString &prenom, QString &email, QString &telephone, QString &login,
                                  QString &password, QString &type, bool* operation)
 {
     *identifiant = ui->lineEditId->text().toInt();
     nom = ui->lineEditNom->text();
     prenom = ui->lineEditPrenom->text();
+    email = ui->lineEditEmail->text();
+    telephone = ui->lineEditTelephone->text();
     login = ui->lineEditUsername->text();
     password = ui->lineEditPassword->text();
     type = ui->comboBoxRole->currentText();
@@ -65,6 +68,11 @@ bool UIAdministrateur::getInputs(int* identifiant, QString &nom, QString &prenom
     else{
         return false;
     }
+}
+
+QLineEdit* UIAdministrateur::getLabelUtilisateurConnecte()
+{
+    return ui->lineEditUtilisateurConnecte;
 }
 
 UserModel* UIAdministrateur::getUserModel()
@@ -93,6 +101,8 @@ void UIAdministrateur::initializeInputs()
 
     ui->lineEditNom->setText("");
     ui->lineEditPrenom->setText("");
+    ui->lineEditEmail->setText("");
+    ui->lineEditTelephone->setText("");
     ui->lineEditUsername->setText("");
     ui->lineEditPassword->setText("");
     ui->lineEditConfirmPassword->setText("");
@@ -108,10 +118,12 @@ void UIAdministrateur::on_tableView_clicked(const QModelIndex &index)
     ui->lineEditId->setText(record.value(0).toString());
     ui->lineEditNom->setText(record.value(1).toString());
     ui->lineEditPrenom->setText(record.value(2).toString());
-    ui->lineEditUsername->setText(record.value(3).toString());
-    ui->lineEditPassword->setText(record.value(4).toString());
-    ui->lineEditConfirmPassword->setText(record.value(4).toString());
-    ui->comboBoxRole->setCurrentText(record.value(5).toString());
+    ui->lineEditEmail->setText(record.value(3).toString());
+    ui->lineEditTelephone->setText(record.value(4).toString());
+    ui->lineEditUsername->setText(record.value(5).toString());
+    ui->lineEditPassword->setText(record.value(6).toString());
+    ui->lineEditConfirmPassword->setText(record.value(6).toString());
+    ui->comboBoxRole->setCurrentText(record.value(7).toString());
 }
 
 void UIAdministrateur::notificationError(QString message)

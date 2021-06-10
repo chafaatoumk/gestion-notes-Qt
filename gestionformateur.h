@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include "formateurmodel.h"
+#include "usermodel.h"
+#include "classmodel.h"
+#include "modulemodel.h"
 #include "dbaccess.h"
 #include <QTableView>
 #include <QSqlRecord>
@@ -22,10 +25,10 @@ public:
     GestionFormateur(QObject* controller = nullptr);
     ~GestionFormateur();
 
-    bool getInputs(int* identifiant, QString &nom, QString &email, QString &module, QString &classe, bool* operation);
+    bool getInputs(int* identifiant, QString &module, QString &classe, bool* operation);
     FormateurModel* getFormateurModel();
     QTableView* getTableView();
-    void setUpTableView();
+    void setUpComboBox();
     QString getCritere();
     QString getRechercherInput();
     void notificationError(QString message);
@@ -40,6 +43,9 @@ private slots:
 private:
     Ui::GestionFormateur *ui;
     FormateurModel* formateurModel;
+    UserModel* userModel;
+    ClassModel* classeModel;
+    ModuleModel* moduleModel;
 };
 
 #endif // GESTIONFORMATEUR_H

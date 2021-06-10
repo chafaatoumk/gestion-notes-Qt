@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>641</height>
+    <width>1071</width>
+    <height>709</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,197 +17,356 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="horizontalLayoutWidget">
+   <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>20</y>
-      <width>581</width>
-      <height>31</height>
+      <x>10</x>
+      <y>10</y>
+      <width>1051</width>
+      <height>641</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLineEdit" name="lineEdit"/>
-     </item>
-     <item>
-      <widget class="QComboBox" name="comboBoxRechercher">
-       <item>
-        <property name="text">
-         <string>ID</string>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <widget class="QTableView" name="tableView">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>70</y>
+       <width>741</width>
+       <height>461</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid;
+border-color: rgb(112, 132, 162);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>10</y>
+       <width>501</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>NOM</string>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
         </property>
-       </item>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButtonRechercher">
-       <property name="text">
-        <string>Rechercher</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="formLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>210</y>
-      <width>231</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <layout class="QFormLayout" name="formLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>ID</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Nom</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Volume Horaire</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEditID">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEditNom"/>
-     </item>
-     <item row="2" column="1">
-      <widget class="QSpinBox" name="spinBoxVolumeHoraire"/>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QTableView" name="tableView">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>80</y>
-      <width>731</width>
-      <height>431</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>221</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QLineEdit" name="lineEdit_4">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>User:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit_5">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>user connecté</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_4">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>529</y>
-      <width>731</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
-     <item>
-      <widget class="QPushButton" name="pushButtonSupprimer">
-       <property name="text">
-        <string>Supprimer</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButtonListerModules">
-       <property name="text">
-        <string>Lister les Modules</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>320</y>
-      <width>231</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QRadioButton" name="radioButtonCreer">
-       <property name="text">
-        <string>Créer</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButtonModifier">
-       <property name="text">
-        <string>Modifier</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QPushButton" name="pushButtonValider">
-    <property name="geometry">
-     <rect>
-      <x>12</x>
-      <y>390</y>
-      <width>221</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Valider</string>
-    </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditRechercher"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBoxRechercherPar">
+        <property name="styleSheet">
+         <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(137, 146, 178, 255), stop:1 rgba(255, 255, 255, 255));</string>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>Id</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Username</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonRechercherPar">
+        <property name="styleSheet">
+         <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(137, 146, 178, 255), stop:1 rgba(255, 255, 255, 255));</string>
+        </property>
+        <property name="text">
+         <string>Rechercher</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="Line" name="line">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>550</y>
+       <width>741</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 127);</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButtonProfil">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Consulter mon profil ...</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(137, 146, 178, 255), stop:1 rgba(255, 255, 255, 255));</string>
+     </property>
+     <property name="text">
+      <string>Profil</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>160</y>
+       <width>271</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <italic>true</italic>
+       <underline>true</underline>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 5px;
+background-color: rgba(255, 255, 255, .0);
+border: 2px solid rgb(49, 49, 49);
+color: rgb(49, 49, 49);</string>
+     </property>
+     <property name="title">
+      <string>Module</string>
+     </property>
+     <widget class="QLineEdit" name="lineEditID">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgba(255, 255, 255, .0);
+border: 2px solid rgb(49, 49, 49);
+color: rgb(49, 49, 49);</string>
+      </property>
+      <property name="placeholderText">
+       <string>Identifiant</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEditNom">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>90</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Nom</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButtonModifier">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>240</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Modifier</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButtonCreer">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>240</y>
+        <width>110</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Creer</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButtonValider">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>280</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(137, 146, 178, 255), stop:1 rgba(255, 255, 255, 255));</string>
+      </property>
+      <property name="text">
+       <string>Valider</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBoxVolumeHoraire">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBoxCredit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>170</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="pushButtonLister">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>580</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(137, 146, 178, 255), stop:1 rgba(255, 255, 255, 255));</string>
+     </property>
+     <property name="text">
+      <string>Lister</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButtonSupprimer">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>580</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(137, 146, 178, 255), stop:1 rgba(255, 255, 255, 255));</string>
+     </property>
+     <property name="text">
+      <string>Supprimer</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButtonEffacer">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>580</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(137, 146, 178, 255), stop:1 rgba(255, 255, 255, 255));</string>
+     </property>
+     <property name="text">
+      <string>Effacer</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButtonExit">
+     <property name="geometry">
+      <rect>
+       <x>870</x>
+       <y>580</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(137, 146, 178, 255), stop:1 rgba(255, 255, 255, 255));</string>
+     </property>
+     <property name="text">
+      <string>Exit</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>740</x>
+       <y>10</y>
+       <width>311</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QLabel" name="labelUtilisateurConnecteTitre">
+        <property name="text">
+         <string>Utilisateur Connecté :</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditUtilisateurConnecte">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -215,7 +374,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1000</width>
+     <width>1071</width>
      <height>26</height>
     </rect>
    </property>

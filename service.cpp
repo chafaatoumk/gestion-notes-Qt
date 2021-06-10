@@ -83,6 +83,53 @@ void Service::createModule(Module module)
     moduleModel.create(module);
 }
 
+void Service::updateModule(Module module, ModuleModel* moduleModel)
+{
+    moduleModel->update(module);
+}
+
+void Service::deleteModule(uint identifiant, ModuleModel* moduleModel)
+{
+    moduleModel->remove(identifiant);
+}
+
+void Service::readAllModules(ModuleModel* moduleModel)
+{
+    moduleModel->readAll();
+}
+
+void Service::cleanModuleTable(ModuleModel* moduleModel)
+{
+    moduleModel->clear();
+}
+
+// Classes
+void Service::createClasse(Classe classe)
+{
+    ClassModel classeModel(DBAccess::getInstance());
+    classeModel.create(classe);
+}
+
+void Service::updateClasse(Classe classe, ClassModel* classeModel)
+{
+    classeModel->update(classe);
+}
+
+void Service::deleteClasse(uint identifiant, ClassModel* classeModel)
+{
+    classeModel->remove(identifiant);
+}
+
+void Service::readAllClasses(ClassModel* classeModel)
+{
+    classeModel->readAll();
+}
+
+void Service::cleanClasseTable(ClassModel* classeModel)
+{
+    classeModel->clear();
+}
+
 // Formateurs
 void Service::createFormateur(Formateur formateur)
 {

@@ -5,6 +5,8 @@
 #include "usermodel.h"
 #include "module.h"
 #include "modulemodel.h"
+#include "classe.h"
+#include "classmodel.h"
 #include "formateur.h"
 #include "formateurmodel.h"
 
@@ -38,6 +40,17 @@ public:
 
     // Modules
     void createModule(Module module);
+    void updateModule(Module module, ModuleModel* moduleModel);
+    void deleteModule(uint identifiant, ModuleModel* moduleModel);
+    void readAllModules(ModuleModel* moduleModel);
+    void cleanModuleTable(ModuleModel* moduleModel);
+
+    // Classes
+    void createClasse(Classe classe);
+    void updateClasse(Classe classe, ClassModel* classeModel);
+    void deleteClasse(uint identifiant, ClassModel* classeModel);
+    void readAllClasses(ClassModel* classeModel);
+    void cleanClasseTable(ClassModel* classeModel);
 
     // Formateurs
     void createFormateur(Formateur formateur);

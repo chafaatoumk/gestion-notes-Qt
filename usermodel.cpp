@@ -15,10 +15,12 @@ void UserModel::create(User user)
     dbAccess->open();
 
     QSqlQuery query(dbAccess->database());
-    query.prepare("INSERT INTO t_users (nom, prenom, login, password, type, created_at) "
-                    "VALUES (:nom, :prenom, :login, :password, :type, datetime('now'))");
+    query.prepare("INSERT INTO t_users (nom, prenom, email, telephone, login, password, type, created_at) "
+                    "VALUES (:nom, :prenom, :email, :telephone, :login, :password, :type, datetime('now'))");
     query.bindValue(":nom", user.getNom());
     query.bindValue(":prenom", user.getPrenom());
+    query.bindValue(":email", user.getEmail());
+    query.bindValue(":telephone", user.getTelephone());
     query.bindValue(":login", user.getLogin());
     query.bindValue(":password", user.getPassword());
     query.bindValue(":type", user.getType());
@@ -40,9 +42,11 @@ void UserModel::readAll()
     this->setHeaderData(0, Qt::Horizontal, tr("IDENTIFIANT"));
     this->setHeaderData(1, Qt::Horizontal, tr("NOM"));
     this->setHeaderData(2, Qt::Horizontal, tr("PRENOM"));
-    this->setHeaderData(3, Qt::Horizontal, tr("LOGIN"));
-    this->setHeaderData(4, Qt::Horizontal, tr("MOT DE PASSE"));
-    this->setHeaderData(5, Qt::Horizontal, tr("TYPE"));
+    this->setHeaderData(3, Qt::Horizontal, tr("EMAIL"));
+    this->setHeaderData(4, Qt::Horizontal, tr("TELEPHONE"));
+    this->setHeaderData(5, Qt::Horizontal, tr("LOGIN"));
+    this->setHeaderData(6, Qt::Horizontal, tr("MOT DE PASSE"));
+    this->setHeaderData(7, Qt::Horizontal, tr("TYPE"));
 
     qDebug () << "Users displayed successfully!";
     dbAccess->close();
@@ -53,10 +57,12 @@ void UserModel::update(User user)
     dbAccess->open();
 
     QSqlQuery query(dbAccess->database());
-    query.prepare("UPDATE t_users SET identifiant=:identifiant, nom=:nom, prenom=:prenom, login=:login, password=:password, type=:type "
-                    "WHERE identifiant=:identifiant");
+    query.prepare("UPDATE t_users SET identifiant=:identifiant, nom=:nom, prenom=:prenom, email=:email, telephone=:telephone, login=:login, "
+"password=:password, type=:type WHERE identifiant=:identifiant");
     query.bindValue(":nom", user.getNom());
     query.bindValue(":prenom", user.getPrenom());
+    query.bindValue(":email", user.getEmail());
+    query.bindValue(":telephone", user.getTelephone());
     query.bindValue(":login", user.getLogin());
     query.bindValue(":password", user.getPassword());
     query.bindValue(":type", user.getType());
@@ -89,7 +95,8 @@ bool UserModel::readBy(QString login)
     dbAccess->open();
 
     QSqlQuery query(dbAccess->database());
-    query.prepare("SELECT identifiant AS Identifiant, nom AS Nom, prenom AS Prénom, login AS Login, type AS Type FROM t_users WHERE login=:login");
+    query.prepare("SELECT identifiant AS IDENTIFIANT, nom AS NOM, prenom AS PRENOM, email AS EMAIL, telephone AS TELEPHONE "
+                    "login AS LOGIN, type AS TYPE FROM t_users WHERE login=:login");
     query.bindValue(":login", login);
 
     query.exec();
@@ -110,7 +117,7 @@ bool UserModel::readBy(QString login, QString password, User *user)
     dbAccess->open();
 
     QSqlQuery query(dbAccess->database());
-    query.prepare("SELECT identifiant, nom, prenom, login, type FROM t_users WHERE login=:login AND password=:password");
+    query.prepare("SELECT identifiant, nom, prenom, email, telephone, login, type FROM t_users WHERE login=:login AND password=:password");
     query.bindValue(":login", login);
     query.bindValue(":password", password);
     query.exec();
@@ -125,6 +132,8 @@ bool UserModel::readBy(QString login, QString password, User *user)
     user->setPassword(password);
     user->setNom(query.value(record.indexOf("nom")).toString());
     user->setPrenom(query.value(record.indexOf("prenom")).toString());
+    user->setEmail(query.value(record.indexOf("email")).toString());
+    user->setTelephone(query.value(record.indexOf("telephone")).toString());
     user->setType(query.value(record.indexOf("type")).toString());
     user->setIdentifiant(query.value(record.indexOf("identifiant")).toUInt());
 
@@ -139,14 +148,16 @@ void UserModel::clear()
     dbAccess->open();
 
     QSqlDatabase database = dbAccess->database();
-    this->setQuery("SELECT identifiant, nom, prenom, login, type FROM t_users WHERE identifiant=-1", database);
+    this->setQuery("SELECT * FROM t_users WHERE identifiant=-1", database);
 
     this->setHeaderData(0, Qt::Horizontal, tr("IDENTIFIANT"));
     this->setHeaderData(1, Qt::Horizontal, tr("NOM"));
     this->setHeaderData(2, Qt::Horizontal, tr("PRENOM"));
-    this->setHeaderData(3, Qt::Horizontal, tr("LOGIN"));
-    this->setHeaderData(4, Qt::Horizontal, tr("MOT DE PASSE"));
-    this->setHeaderData(4, Qt::Horizontal, tr("TYPE"));
+    this->setHeaderData(3, Qt::Horizontal, tr("EMAIL"));
+    this->setHeaderData(4, Qt::Horizontal, tr("TELEPHONE"));
+    this->setHeaderData(5, Qt::Horizontal, tr("LOGIN"));
+    this->setHeaderData(6, Qt::Horizontal, tr("MOT DE PASSE"));
+    this->setHeaderData(7, Qt::Horizontal, tr("TYPE"));
 
     dbAccess->close();
 }

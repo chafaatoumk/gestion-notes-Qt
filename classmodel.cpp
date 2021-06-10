@@ -15,7 +15,7 @@ void ClassModel::create(Classe classe)
     dbAccess->open();
 
     QSqlQuery query(dbAccess->database());
-    query.prepare("INSERT INTO t_classes (nom) VALUES (:nom)");
+    query.prepare("INSERT INTO t_classes (nom, created_at) VALUES (:nom, datetime('now'))");
     query.bindValue(":nom", classe.getNom());
     query.exec();
 
@@ -30,10 +30,11 @@ void ClassModel::readAll()
     dbAccess->open();
 
     QSqlDatabase database = dbAccess->database();
-    this->setQuery("SELECT identifiant, nom FROM t_classes", database);
+    this->setQuery("SELECT * FROM t_classes", database);
 
     this->setHeaderData(0, Qt::Horizontal, tr("IDENTIFIANT"));
     this->setHeaderData(1, Qt::Horizontal, tr("NOM"));
+    this->setHeaderData(2, Qt::Horizontal, tr("DATE DE CREATION"));
 
     qDebug () << "Classes displayed successfully!";
     dbAccess->close();
@@ -123,6 +124,7 @@ void ClassModel::clear()
 
     this->setHeaderData(0, Qt::Horizontal, tr("IDENTIFIANT"));
     this->setHeaderData(1, Qt::Horizontal, tr("NOM"));
+    this->setHeaderData(2, Qt::Horizontal, tr("DATE DE CREATION"));
 
     dbAccess->close();
 }

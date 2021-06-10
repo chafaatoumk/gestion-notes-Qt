@@ -3,7 +3,7 @@
 #include <QMessageBox>
 
 FlowController::FlowController() : uiAuthentification(nullptr), uiAdministrateur (nullptr), uiResponsable(nullptr),
-        uiModule(nullptr), uiGestionFormateur(nullptr)
+        uiModule(nullptr), uiClasse(nullptr), uiGestionFormateur(nullptr)
 {
      service = Service::getInstance();
 }
@@ -78,14 +78,16 @@ void FlowController::onUIAdministrateurValiderClicked()
     QString password;
     QString nom;
     QString prenom;
+    QString email;
+    QString telephone;
     QString type;
     bool operation;
 
-    bool statut = this->uiAdministrateur->getInputs(&identifiant, nom, prenom, login, password, type, &operation);
+    bool statut = this->uiAdministrateur->getInputs(&identifiant, nom, prenom, email, telephone, login, password, type, &operation);
     if (statut == true)
     {
         // Creation d'un objet User
-        User user (identifiant, nom, prenom, login, password);
+        User user (identifiant, nom, prenom, email, telephone, login, password);
         user.setType(type);
 
         if (operation == true)
@@ -123,14 +125,16 @@ void FlowController::onUIAdministrateurSupprimerClicked()
     QString password;
     QString nom;
     QString prenom;
+    QString email;
+    QString telephone;
     QString type;
     bool operation;
 
-    bool statut = this->uiAdministrateur->getInputs(&identifiant, nom, prenom, login, password, type, &operation);
+    bool statut = this->uiAdministrateur->getInputs(&identifiant, nom, prenom,email, telephone, login, password, type, &operation);
     if (statut == true)
     {
         // Creation d'un objet User
-        User user (identifiant, nom, prenom, login, password);
+        User user (identifiant, nom, prenom, email, telephone, login, password);
         user.setType(type);
         UserModel *userModel = uiAdministrateur->getUserModel();
         QString message = "Utilisateur "+user.getNom()+" suprimé avec succès !";
@@ -146,6 +150,8 @@ void FlowController::onUIAdministrateurSupprimerClicked()
 void FlowController::onUIAdministrateurExitClicked()
 {
     uiAdministrateur->close();
+    uiAuthentification = new UIauthentication(this);
+    uiAuthentification->show();
 }
 
 void FlowController::onUIAdministrateurRechercherClicked()
@@ -170,7 +176,7 @@ void FlowController::onUIAdministrateurProfilClicked()
 
 void FlowController::onUIResponsableModulesClicked()
 {
-    uiResponsable->close();
+    uiResponsable->hide();
     uiModule = new UIModule(this);
     uiModule->show();
 }
@@ -190,50 +196,41 @@ void FlowController::onUIResponsableFormateursClicked()
 void FlowController::onUIResponsableClassesClicked()
 {
     uiResponsable->close();
+    uiClasse = new UIClasse(this);
+    uiClasse->show();
 }
 
 /*
     les fonctions à executer suite au click des boutons respectifs
     de la page de gestion des modules(uimodule)
 */
-void FlowController::onUIModuleCreerClicked()
+
+void FlowController::onUIModuleSupprimerClicked()
 {
-    /*uint identifiant = -1;
+    int identifiant = -1;
     QString nom;
     uint volumeHoraire;
     bool operation;
 
-    bool statut = this->uiModule->getInputs(&identifiant, &nom, &volumeHoraire, &operation);
+    bool statut = this->uiModule->getInputs(&identifiant, nom, volumeHoraire, &operation);
     if (statut == true)
     {
-        if (operation == true)
-        {
-            // Creation
-            Module module (nom, volumeHoraire);
+        // Creation d'un objet User
+        Module module (identifiant, nom, volumeHoraire);
+        ModuleModel *moduleModel = uiModule->getModuleModel();
+        QString message = "Module "+module.getNom()+" suprimé avec succès !";
 
-            service->createModule(module);
-            uiModule->initializeInputs();
-        }
-        else
-        {
-            // Mise à jour ...
-        }
-    } */
-}
+        service->deleteModule(module.getIdentifiant(), moduleModel);
+        uiModule->initializeInputs();
 
-void FlowController::onUIModuleModifierClicked()
-{
-
-}
-
-void FlowController::onUIModuleSupprimerClicked()
-{
-
+        this->uiModule->notificationInformation(message);
+        service->readAllUsers(uiAdministrateur->getUserModel());
+    }
 }
 
 void FlowController::onUIModuleListerClicked()
 {
-
+    service->readAllModules(uiModule->getModuleModel());
 }
 
 void FlowController::onUIModuleValiderClicked()
@@ -246,34 +243,125 @@ void FlowController::onUIModuleValiderClicked()
     bool statut = this->uiModule->getInputs(&identifiant, nom, volume_horaire, &operation);
     if (statut == true)
     {
+        // Creation d'un objet User
+        Module module (identifiant, nom, volume_horaire);
+
         if (operation == true)
         {
-            // Creation
-            Module module (nom, volume_horaire);
-
             service->createModule(module);
             uiModule->initializeInputs();
+            QString message = "Module "+module.getNom()+" créé avec succès !";
+            this->uiModule->notificationInformation(message);
         }
         else
         {
-            // Mise à jour ...
+            service->updateModule(module, uiModule->getModuleModel());
+            uiModule->initializeInputs();
+            QString message = "Module "+module.getNom()+" mis à jour avec succès !";
+            this->uiModule->notificationInformation(message);
         }
     }
+    service->readAllModules(uiModule->getModuleModel());
+}
+
+void FlowController::onUIModuleEffacerClicked()
+{
+    service->cleanModuleTable(uiModule->getModuleModel());
+}
+
+void FlowController::onUIModuleRechercherClicked()
+{
+
+}
+
+void FlowController::onUIModuleExitClicked()
+{
+    uiModule->close();
+    uiResponsable = new Responsable(this);
+    uiResponsable->show();
+}
+
+/*
+    les fonctions à executer suite au click des boutons respectifs
+    de la page de gestion des classes(uiclasse)
+*/
+void FlowController::onUIClasseSupprimerClicked()
+{
+    int identifiant = -1;
+    QString nom;
+    bool operation;
+
+    bool statut = this->uiClasse->getInputs(&identifiant, nom, &operation);
+    if (statut == true)
+    {
+        // Creation d'un objet User
+        Classe classe (identifiant, nom);
+        ClassModel *classeModel = uiClasse->getClassModel();
+        QString message = "Classe "+classe.getNom()+" suprimée avec succès !";
+
+        service->deleteClasse(classe.getIdentifiant(), classeModel);
+        uiClasse->initializeInputs();
+
+        this->uiClasse->notificationInformation(message);
+        service->readAllClasses(uiClasse->getClassModel());
+    }
+}
+
+void FlowController::onUIClasseListerClicked()
+{
+    service->readAllClasses(uiClasse->getClassModel());
+}
+void FlowController::onUIClasseValiderClicked()
+{
+    int identifiant = -1;
+    QString nom;
+    bool operation;
+
+    bool statut = this->uiClasse->getInputs(&identifiant, nom, &operation);
+    if (statut == true)
+    {
+        // Creation d'un objet Classe
+        Classe classe (identifiant, nom);
+
+        if (operation == true)
+        {
+            service->createClasse(classe);
+            uiClasse->initializeInputs();
+            QString message = "Classe "+classe.getNom()+" créée avec succès !";
+            this->uiAdministrateur->notificationInformation(message);
+        }
+        else
+        {
+            service->updateClasse(classe, uiClasse->getClassModel());
+            uiModule->initializeInputs();
+            QString message = "Utilisateur "+classe.getNom()+" mis à jour avec succès !";
+            this->uiAdministrateur->notificationInformation(message);
+        }
+    }
+    service->readAllClasses(uiClasse->getClassModel());
+}
+
+void FlowController::onUIClasseEffacerClicked()
+{
+    service->cleanClasseTable(uiClasse->getClassModel());
+}
+
+void FlowController::onUIClasseRechercherClicked()
+{
+
+}
+
+void FlowController::onUIClasseExitClicked()
+{
+    uiClasse->close();
+    uiResponsable = new Responsable(this);
+    uiResponsable->show();
 }
 
 /*
     les fonctions à executer suite au click des boutons respectifs
     de la page de gestion des formateurs(GestionFormateur)
 */
-void FlowController::onUIGestionFormateurCreerClicked()
-{
-
-}
-
-void FlowController::onUIGestionFormateurModifierClicked()
-{
-
-}
 
 void FlowController::onUIGestionFormateurSupprimerClicked()
 {
@@ -326,6 +414,11 @@ FlowController::~FlowController()
     if (uiModule != nullptr)
     {
         delete uiModule;
+    }
+
+    if (uiClasse != nullptr)
+    {
+        delete uiClasse;
     }
 
     if (service != nullptr)

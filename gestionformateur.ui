@@ -177,7 +177,7 @@ color: rgb(49, 49, 49);</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>80</y>
+        <y>180</y>
         <width>231</width>
         <height>31</height>
        </rect>
@@ -190,22 +190,6 @@ color: rgb(49, 49, 49);</string>
       </property>
       <property name="placeholderText">
        <string>Identifiant</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEditEmail">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>200</y>
-        <width>231</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="placeholderText">
-       <string>Email</string>
       </property>
      </widget>
      <widget class="QComboBox" name="comboBoxModule">
@@ -225,32 +209,6 @@ color: rgb(49, 49, 49);</string>
         <string>Module</string>
        </property>
       </item>
-     </widget>
-     <widget class="QLineEdit" name="lineEditPrenom">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>160</y>
-        <width>231</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="placeholderText">
-       <string>Prenom</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEditNom">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>120</y>
-        <width>231</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="placeholderText">
-       <string>Nom</string>
-      </property>
      </widget>
      <widget class="QRadioButton" name="radioButtonModifier">
       <property name="geometry">
@@ -304,7 +262,7 @@ color: rgb(49, 49, 49);</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>320</y>
+        <y>330</y>
         <width>231</width>
         <height>31</height>
        </rect>
@@ -321,21 +279,23 @@ color: rgb(49, 49, 49);</string>
        </property>
       </item>
      </widget>
-     <widget class="QLineEdit" name="lineEditTelephone">
+     <widget class="QComboBox" name="comboBoxFormateur">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>240</y>
+        <y>230</y>
         <width>231</width>
         <height>31</height>
        </rect>
       </property>
-      <property name="text">
-       <string/>
+      <property name="currentIndex">
+       <number>0</number>
       </property>
-      <property name="placeholderText">
-       <string>Téléphone</string>
-      </property>
+      <item>
+       <property name="text">
+        <string>Formateur</string>
+       </property>
+      </item>
      </widget>
     </widget>
     <widget class="QPushButton" name="pushButtonExit">
